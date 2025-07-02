@@ -1,0 +1,23 @@
+<% layout("layouts/boilerplate") %>
+<div class="container mt-4">
+  <h2>Villa Booking</h2>
+  <form method="POST" action="/book/<%= listing._id %>/verify-price">
+    <div class="mb-3">
+      <label>Villa Name</label>
+      <input type="text" class="form-control" value="<%= listing.title %>" disabled />
+    </div>
+    <div class="mb-3">
+      <label>Price (₹)</label>
+      <input type="number" class="form-control" name="expectedPrice" value="<%= listing.price %>" readonly />
+    </div>
+    <div class="mb-3">
+      <label>Enter Same Price to Confirm</label>
+      <input type="number" class="form-control" name="enteredPrice" required />
+    </div>
+    <div class="mb-3">
+      <label>Email for OTP</label>
+      <input type="email" class="form-control" name="email" required />
+    </div>
+    <button class="btn btn-dark">Proceed to OTP</button>
+  </form>
+</div>

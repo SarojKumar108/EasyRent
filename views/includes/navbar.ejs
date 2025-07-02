@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+  <div class="container-fluid">
+    <!-- 🔗 Logo -->
+    <a class="navbar-brand fw-bold text-primary" href="/listings">
+      <i class="fa-solid fa-compass"></i> EasyRent
+    </a>
+
+    <!-- Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Main Navbar -->
+    <div class="collapse navbar-collapse" id="navbarMain">
+      
+      <!-- 🔍 Search Bar -->
+      <form class="d-flex mx-auto" action="/search" method="GET">
+        <input class="form-control me-2" name="q" type="search" placeholder="Search destinations" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+
+      <!-- 🔗 Nav Links (Center or Left-aligned) -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/listings">Explore</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/cart"><i class="fa fa-shopping-cart"></i> Cart (<span id="cart-count"><%= cartCount %></span>)</a></li>
+        <li class="nav-item"><a class="nav-link" href="/listings/new">Airbnb your home</a></li>
+      </ul>
+
+      <!-- 🔒 Auth Section -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if (!currUser) { %>
+          <li class="nav-item"><a class="nav-link" href="/signup"><b>Sign up</b></a></li>
+          <li class="nav-item"><a class="nav-link" href="/login"><b>Log in</b></a></li>
+        <% } else { %>
+          <!-- 👤 Profile Dropdown -->
+           <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+        <i class="fa-solid fa-user-circle"></i> <%= currUser.username %>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+        <li><a class="dropdown-item" href="/profile"><i class="fa-solid fa-user"></i> Dashboard</a></li>
+        <li><a class="dropdown-item" href="/bookings"><i class="fa-solid fa-ticket"></i> My Bookings</a></li>
+        <li><a class="dropdown-item" href="/profile/reviews"><i class="fa-solid fa-star"></i> My Reviews</a></li>
+        <li><a class="dropdown-item" href="/cart"><i class="fa-solid fa-cart-shopping"></i> My Cart</a></li>
+        <li><a class="dropdown-item" href="/profile/settings"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="/logout"><i class="fa-solid fa-sign-out-alt"></i> Log out</a></li>
+      </ul>
+    </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+

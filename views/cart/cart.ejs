@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container mt-5">
+  <h2 class="mb-4">🛒 Your Cart (<%= cart.length %> items)</h2>
+
+  <% if (cart.length === 0) { %>
+    <div class="alert alert-info">Your cart is empty. <a href="/listings">Explore listings</a></div>
+  <% } %>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <% cart.forEach(item => { %>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><%= item.title %></h5>
+            <p class="card-text text-muted">
+              <i class="fa-solid fa-location-dot"></i> <%= item.location %>
+            </p>
+            <p class="fw-bold text-success">₹<%= item.price %></p>
+
+            <form action="/cart/remove/<%= item._id %>" method="POST" class="d-inline">
+              <button class="btn btn-outline-danger btn-sm">
+                <i class="fa fa-trash"></i> Remove
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+  <% if (cart.length > 0) { %>
+  <hr>
+  <div class="d-flex justify-content-between align-items-center">
+    <h4>Total: ₹<%= total %></h4>
+    <a href="/cart/checkout" class="btn btn-success">
+      Proceed to Checkout
+    </a>
+  </div>
+<% } %>
+
+</div>

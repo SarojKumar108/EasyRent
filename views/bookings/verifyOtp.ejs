@@ -1,0 +1,12 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="col-6 offset-3 mt-5">
+  <h3>Enter OTP</h3>
+  <form method="POST" action="/book/verify-otp">
+    <div class="mb-3">
+      <label for="otp" class="form-label">OTP</label>
+      <input type="text" name="otp" id="otp" class="form-control" required />
+    </div>
+    <button class="btn btn-dark">Verify OTP</button>
+  </form>
+</div>

@@ -1,0 +1,9 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5" style="max-width: 400px;">
+  <h3 class="mb-3">Verify OTP</h3>
+  <form action="/cart/verify-otp" method="POST">
+    <input type="number" name="otp" class="form-control mb-3" placeholder="6-digit OTP" required>
+    <button class="btn btn-primary w-100">Verify</button>
+  </form>
+</div>

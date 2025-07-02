@@ -1,0 +1,41 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5" style="max-width: 600px;">
+  <h2 class="mb-4">Checkout Summary</h2>
+
+  <ul class="list-group mb-3">
+    <% cart.forEach(i => { %>
+      <li class="list-group-item d-flex justify-content-between">
+        <span><%= i.title %></span>
+        <strong>₹<%= i.price %></strong>
+      </li>
+    <% }) %>
+    <li class="list-group-item d-flex justify-content-between">
+      <span class="fw-bold">Total</span>
+      <strong class="fw-bold">₹<%= total %></strong>
+    </li>
+  </ul>
+
+  <form action="/cart/verify-price" method="POST">
+    <!-- hidden authoritative amount -->
+    <input type="hidden" name="expectedPrice" value="<%= total %>">
+
+    <div class="mb-3">
+      <label class="form-label">Enter total to confirm</label>
+      <input
+        type="number"
+        name="enteredPrice"
+        class="form-control"
+        placeholder="₹<%= total %>"
+        required
+      >
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email for OTP</label>
+      <input type="email" name="email" class="form-control" required>
+    </div>
+
+    <button class="btn btn-dark w-100">Proceed to OTP</button>
+  </form>
+</div>

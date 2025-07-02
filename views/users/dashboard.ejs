@@ -1,0 +1,54 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <h2 class="mb-4">👤 Welcome, <%= currUser.username %>!</h2>
+
+  <!-- Profile Summary Card -->
+  <div class="card mb-4 shadow rounded-3">
+    <div class="card-body">
+      <h4 class="card-title">Account Overview</h4>
+      <p class="card-text">
+        <strong>Email:</strong> <%= currUser.email %><br>
+      </p>
+    </div>
+  </div>
+
+  <!-- Dashboard Sections -->
+  <div class="row g-4">
+    <!-- Bookings -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <i class="fa-solid fa-ticket fa-2x mb-3"></i>
+          <h5 class="card-title">My Bookings</h5>
+          <p class="card-text">View your active and past villa bookings.</p>
+          <a href="/bookings" class="btn btn-outline-dark btn-sm">View Bookings</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <i class="fa-solid fa-cart-shopping fa-2x mb-3"></i>
+          <h5 class="card-title">My Cart</h5>
+          <p class="card-text">Items you plan to book soon.</p>
+          <a href="/cart" class="btn btn-outline-dark btn-sm">View Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <i class="fa-solid fa-star fa-2x mb-3"></i>
+          <h5 class="card-title">My Reviews</h5>
+          <p class="card-text">Manage your submitted reviews.</p>
+          <a href="/profile/reviews" class="btn btn-outline-dark btn-sm">Manage Reviews</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

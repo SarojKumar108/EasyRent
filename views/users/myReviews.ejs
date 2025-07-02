@@ -1,0 +1,20 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <h2 class="mb-4">My Reviews</h2>
+
+  <% if (reviews.length === 0) { %>
+    <div class="alert alert-info">You have not posted any reviews yet.</div>
+  <% } else { %>
+    <div class="list-group">
+      <% reviews.forEach(r => { %>
+        <div class="list-group-item">
+          <h5><%= r.listing ? r.listing.title : "Listing deleted" %> — <%= r.rating %>/5 ⭐</h5>
+          <p><%= r.comment %></p>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</div>
+
+

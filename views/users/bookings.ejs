@@ -1,0 +1,21 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <h2>My Bookings</h2>
+
+  <% if (bookings.length === 0) { %>
+    <p class="text-muted">No bookings yet.</p>
+  <% } else { %>
+    <ul class="list-group">
+      <% bookings.forEach(b => { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong><%= b.listingTitle %></strong><br>
+            <small><%= b.location %> <%= b.country %></small>
+          </div>
+          <span class="badge bg-dark">₹<%= b.price %></span>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</div>
